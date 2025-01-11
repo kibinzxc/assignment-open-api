@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CryptoModule } from './crypto/crypto.module';
+import { HttpModule } from '@nestjs/axios';
+import { CryptoService } from './crypto/crypto.service';
+import { CryptoController } from './crypto/crypto.controller';
 
 @Module({
-  imports: [CryptoModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [HttpModule],  // Import HttpModule here
+  providers: [CryptoService],
+  controllers: [CryptoController],
 })
-export class AppModule {}
+export class AppModule { }
